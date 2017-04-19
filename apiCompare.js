@@ -1,5 +1,5 @@
-const api1 = ""
-const api2 = ""
+const api1 = "https://api.csgofast.com/price/all"
+const api2 = "https://api.steamapi.io/market/prices/730?key=d9e195b64179027fa3af3af2a2b7da24"
 //Put in url:s to api1 and api2
 
 console.log("Starting...")
@@ -54,7 +54,7 @@ function compareAll(){
     var difference = (parseInt(prices1[item]*100)-parseInt(prices2[item]*100))/100
     var absDifference = Math.abs(difference);
     if(prices1[item]==prices2[item]){
-      console.log("The price for "+item+" is the same");
+      console.log("The price for "+item+" is the same ("+prices1[item]+")");
       statistics.samePrice++;
     }else{
       console.log("The price for "+item+" is different:");
@@ -69,7 +69,9 @@ function compareAll(){
   byDiff.sort(function(a,b) {
       return b.absDifference - a.absDifference;
   });
-  statistics.differPercentage = statistics.differentPrice/(statistics.samePrice+statistics.differentPrice)*100
+  statistics.differPercentage = statistics.differentPrice/(statistics.samePrice+statistics.differentPrice)*10000
+  statistics.differPercentage = Math.round(statistics.differPercentage)
+  statistics.differPercentage /= 100
   var toWrite = {statistics:statistics,items:byDiff}
   fs.writeFile('differenceList.json',JSON.stringify(toWrite))
   console.log("All results has been sorted and saved to the file differenceList.json, and the api price lists are saved to api1prices and api2prices")
