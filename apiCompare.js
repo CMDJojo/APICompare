@@ -1,5 +1,5 @@
-const api1 = "https://api.csgofast.com/price/all"
-const api2 = "https://api.steamapi.io/market/prices/730?key=d9e195b64179027fa3af3af2a2b7da24"
+const api1 = ""
+const api2 = ""
 //Put in url:s to api1 and api2
 
 console.log("Starting...")
