@@ -74,6 +74,6 @@ function compareAll(){
   fs.writeFile('differenceList.json',JSON.stringify(toWrite))
   console.log("All results has been sorted and saved to the file differenceList.json, and the api price lists are saved to api1prices and api2prices")
   console.log("The item with the highest difference is "+byDiff[0].name+" with a price difference of "+byDiff[0].absDifference+", where api1 says its worth "+byDiff[0].price1+", and api2 says its worth "+byDiff[0].price2)
-  console.log(statistics.differentPercentage+"% of the items in the two API:s had different prices, "+statistics.differentPrice+" items had different prices and "+statistics.samePrice+" had the same price")
+  console.log(statistics.differPercentage+"% of the items in the two API:s had different prices, "+statistics.differentPrice+" items had different prices and "+statistics.samePrice+" had the same price")
   console.log("The statistics has also been added to the result document")
 }
